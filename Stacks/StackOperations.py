@@ -5,6 +5,14 @@ class Stack:
         self.stack_array = []
         self.top = 0
         self.capacity = capacity
+    def show_stack(self):
+        if len(self.stack_array) == 0:
+            print(Fore.YELLOW + "\nThe Stack Appears To Be Empty\nPlease Push Some Data.\n" + Style.RESET_ALL)
+        else:
+            print(Fore.YELLOW + "\nTOP")
+            for i in self.stack_array:
+                print(i)
+            print("BOTTOM\n" + Style.RESET_ALL)
     def pop(self):
         if len(self.stack_array) == 0:
             return "STACK_EMPTY"
@@ -46,7 +54,8 @@ while option != 0:
     print("1. Pop.")
     print("2. Push.")
     print("3. Peek.")
-    print("4. Exit.")
+    print("4. Display Stack")
+    print("5. Exit.")
     choice = int(input("\nEnter your choice : "))
     if choice == 1:
         result = stack.pop()
@@ -65,6 +74,8 @@ while option != 0:
         if result == "STACK_EMPTY":
             print(Fore.RED + "\nPeek Operation Failed.\nReason: Empty Stack\n" + Style.RESET_ALL)
         else:
-            print(Fore.GREEN + "\Peek Operation Successful.\nElement At Stack Top : ", result, "\n" + Style.RESET_ALL)
+            print(Fore.GREEN + "\nPeek Operation Successful.\nElement At Stack Top : ", result, "\n" + Style.RESET_ALL)
+    elif choice == 4:
+        stack.show_stack()
     else:
         option = 0
